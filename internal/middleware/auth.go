@@ -40,10 +40,10 @@ func AuthRequired(c *fiber.Ctx) error {
 	c.Locals("role", role)
 
 	// Role-Based Access Control:
-	// GALLERY_ADMIN is ONLY allowed to access gallery-related endpoints or file uploads.
+	// GALLERY_ADMIN is ONLY allowed to access gallery-related endpoints, file uploads, or profile password management.
 	if role == "GALLERY_ADMIN" {
 		path := c.Path()
-		isGalleryRoute := strings.Contains(path, "/admin/gallery") || strings.Contains(path, "/admin/upload")
+		isGalleryRoute := strings.Contains(path, "/admin/gallery") || strings.Contains(path, "/admin/upload") || strings.Contains(path, "/admin/profile/password")
 		if !isGalleryRoute {
 			return c.Status(403).JSON(fiber.Map{"error": "Access denied: Gallery administrator permissions only"})
 		}

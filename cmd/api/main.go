@@ -93,6 +93,8 @@ func main() {
 	admin.Get("/accounts", handlers.GetAdmins)
 	admin.Post("/accounts", handlers.CreateAdmin)
 	admin.Delete("/accounts/:id", handlers.DeleteAdmin)
+	admin.Put("/accounts/:id/password", handlers.ResetAdminPassword)
+	admin.Put("/profile/password", handlers.ChangeSelfPassword)
 	
 	// Content Management
 	admin.Post("/notices", handlers.CreateNotice)
