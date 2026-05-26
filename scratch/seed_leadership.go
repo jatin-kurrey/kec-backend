@@ -14,6 +14,48 @@ func main() {
 
 	leadership := []models.Leadership{
 		{
+			Name:           "Mr. Anand Kumar Tripathi",
+			Role:           "Chairman, Krishna Engineering College & Vice-Chairman, KES",
+			Department:     "Management",
+			Image:          "/leadership/anandKumar.jpeg",
+			Qualification:  "Graduate",
+			Experience:     "15+ Years",
+			Email:          "chairman@krishnacollege.edu",
+			Phone:          "+91-788-2286662",
+			Specialization: "Governance & Strategy",
+			Achievements:   datatypes.JSON(`["Chairman of Krishna Engineering College", "Vice-Chairman of Krishna Education Society", "Driving academic excellence and innovation in education"]`),
+			Bio:            "A visionary leader shaping the growth of Krishna Engineering College and contributing significantly as Vice-Chairman of Krishna Education Society.",
+			Priority:       1,
+		},
+		{
+			Name:           "Mr. M. M. Tripathi",
+			Role:           "Chairman, Krishna Education Society",
+			Department:     "Management",
+			Image:          "https://www.kecbhilai.com/images/MANAGEMENT%20&%20HIGHER%20AUTHORITIES/mmtripathi.jpg",
+			Qualification:  "Graduate",
+			Experience:     "20+ Years",
+			Email:          "president@krishnacollege.edu",
+			Phone:          "+91-788-2286661",
+			Specialization: "Academic Governance",
+			Achievements:   datatypes.JSON(`["Chairman of Krishna Education Society", "Promoting quality education and values", "Champion of community-driven education"]`),
+			Bio:            "Providing strong leadership and guidance as Chairman of Krishna Education Society, fostering an environment of learning and growth.",
+			Priority:       2,
+		},
+		{
+			Name:           "Mr. Pramod Kumar Tripathi",
+			Role:           "Secretary, Krishna Education Society",
+			Department:     "Management",
+			Image:          "https://www.kecbhilai.com/images/MANAGEMENT%20&%20HIGHER%20AUTHORITIES/pramodtripathi.jpg",
+			Qualification:  "Graduate",
+			Experience:     "12+ Years",
+			Email:          "secretary@krishnacollege.edu",
+			Phone:          "+91-788-2286663",
+			Specialization: "Administration & Development",
+			Achievements:   datatypes.JSON(`["Secretary of Krishna Education Society", "Strengthening academic and cultural initiatives", "Committed to holistic student development"]`),
+			Bio:            "Dedicated to the mission of Krishna Education Society, ensuring high standards in education and administration.",
+			Priority:       3,
+		},
+		{
 			Name:           "Dr. Ajay Tiwari",
 			Role:           "Principal",
 			Department:     "Administration",
@@ -24,8 +66,8 @@ func main() {
 			Phone:          "9893510942",
 			Specialization: "Mechanical (Robotics)",
 			Achievements:   datatypes.JSON(`["21 Publications (10 National, 7 International, 8 Journals/Conferences)", "2 PhD Scholars Guided", "1 Patent Registered", "Area of Specialization: Mechanical (Robotics)"]`),
-			Bio:            "At Krishna Engineering College, our mission is to foster innovation, excellence, and ethical leadership in our students. We are committed to providing world-class education and nurturing future-ready engineers who will make a positive impact on society. Our institution stands as a beacon of knowledge, where we blend traditional values with modern technological advancements to create a holistic learning environment. Our dedicated faculty, state-of-the-art infrastructure, and industry partnerships ensure that our students receive not just education, but an experience that shapes their character and professional capabilities. We take pride in seeing our graduates excel in diverse fields across the globe, carrying forward the legacy of excellence that defines Krishna Engineering College. I invite you to join our vibrant academic community and embark on a journey of discovery, innovation, and personal growth.",
-			Priority:       1,
+			Bio:            "At Krishna Engineering College, our mission is to foster innovation, excellence, and ethical leadership in our students. We are committed to providing world-class education and nurturing future-ready engineers who will make a positive impact on society.",
+			Priority:       4,
 		},
 		{
 			Name:           "Ash Kumar Soni",
@@ -39,48 +81,6 @@ func main() {
 			Specialization: "Production Engineering",
 			Achievements:   datatypes.JSON(`["5 publications", "Guided 5 student projects"]`),
 			Bio:            "An experienced mechanical engineering professional with expertise in production engineering. Committed to academic excellence and student development.",
-			Priority:       2,
-		},
-		{
-			Name:           "Prabhat Kumar Patel",
-			Role:           "HOD",
-			Department:     "Civil Engineering",
-			Image:          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
-			Qualification:  "B.E (Civil), M.Tech (CTM - Civil Engineering), MBA (Finance), MBA (HR & Marketing), Pursuing AMIE",
-			Experience:     "7 years",
-			Email:          "hod.civil.prabhat@kec.edu",
-			Phone:          "+91 9876543215",
-			Specialization: "Construction Technology and Management",
-			Achievements:   datatypes.JSON(`["6 research papers published in UGC-approved journals", "Presented papers in peer-reviewed journals", "Best Young Faculty Award - Novel Research Academy", "Best Research Scholar Award - Bhartiya Vikas Sansthan", "Bharatiya Gaurav Samman - Bhartiya Kala Sanskriti Academy", "Best Young Researcher Award - Institute of Scholars", "Top 10 Motivated Faculty of India - Engineering Graphics with Timoshenko", "Featured on Health & Success Magazine cover (June 2020)"]`),
-			Bio:            "A highly accomplished academician with multiple qualifications and numerous awards. Passionate about research and student mentorship.",
-			Priority:       3,
-		},
-		{
-			Name:           "Dr. Joy Sonashalol",
-			Role:           "HOD",
-			Department:     "Computer Science & Engineering",
-			Image:          "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-			Qualification:  "Ph.D. in Artificial Intelligence",
-			Experience:     "20 years",
-			Email:          "hod.cse@kec.edu",
-			Phone:          "+91 9876543212",
-			Specialization: "Artificial Intelligence, Machine Learning, Data Science",
-			Achievements:   datatypes.JSON(`["Developed AI-driven learning platforms", "Author of 3 textbooks in Machine Learning and AI", "Consultant for multiple software product companies"]`),
-			Bio:            "A leading academician in computer science, known for pioneering research in artificial intelligence and machine learning. Passionate about shaping future tech leaders through innovation and mentorship.",
-			Priority:       4,
-		},
-		{
-			Name:           "Mr. Tarachand Sahu",
-			Role:           "HOD",
-			Department:     "Electrical Engineering",
-			Image:          "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-			Qualification:  "B.E. (Electrical & Electronics Engineering), M.Tech (Electrical Engineering)",
-			Experience:     "10 years",
-			Email:          "tarachand.sahu@kec.edu",
-			Phone:          "+91 9876543216",
-			Specialization: "Electrical Machines, Power Systems",
-			Achievements:   datatypes.JSON(`["Published 2 research papers in reputed journals"]`),
-			Bio:            "Mr. Tarachand Sahu is an Assistant Professor in the Department of Electrical Engineering. His teaching and academic interests lie in the areas of power systems and electrical machines. He is committed to student development and technical excellence.",
 			Priority:       5,
 		},
 	}
@@ -91,7 +91,6 @@ func main() {
 			config.DB.Create(&member)
 			log.Printf("Created Leadership: %s\n", member.Name)
 		} else {
-			// Use map to ensure all fields are updated (even if they were empty)
 			config.DB.Model(&existing).Updates(map[string]interface{}{
 				"role":           member.Role,
 				"department":     member.Department,
@@ -109,5 +108,5 @@ func main() {
 		}
 	}
 
-	log.Println("Leadership seeding (EXACT) complete!")
+	log.Println("Leadership seeding complete!")
 }

@@ -55,6 +55,7 @@ func ConnectDB() {
 		&models.Recruiter{},
 		&models.PlacementTestimonial{},
 		&models.PressMedia{},
+		&models.SystemSetting{},
 	)
 	if err != nil {
 		log.Fatal("Failed to auto-migrate:", err)

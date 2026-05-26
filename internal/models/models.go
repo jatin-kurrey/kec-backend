@@ -393,3 +393,9 @@ type PressMedia struct {
 	Image       string    `gorm:"-" json:"image"` // Virtual field for frontend compatibility
 	CreatedAt   time.Time `json:"created_at"`
 }
+
+type SystemSetting struct {
+	Key       string    `gorm:"primaryKey" json:"key"`
+	Value     string    `json:"value"`
+	UpdatedAt time.Time `json:"updated_at"`
+}

@@ -9,7 +9,6 @@ import (
 	"kec-backend/internal/middleware"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 )
@@ -32,10 +31,22 @@ func main() {
 
 	// Middleware
 	app.Use(logger.New())
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "*", // Adjust for production
-		AllowHeaders: "Origin, Content-Type, Accept, Authorization",
-	}))
+	app.Use(func(c *fiber.Ctx) error {
+		origin := c.Get("Origin")
+		if origin != "" {
+			c.Set("Access-Control-Allow-Origin", origin)
+		} else {
+			c.Set("Access-Control-Allow-Origin", "*")
+		}
+		c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization, X-Requested-With, X-CSRF-Token")
+		c.Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD, PATCH")
+		c.Set("Access-Control-Allow-Credentials", "true")
+
+		if c.Method() == "OPTIONS" {
+			return c.SendStatus(204)
+		}
+		return c.Next()
+	})
 
 	// Health Check
 	app.Get("/health", func(c *fiber.Ctx) error {
@@ -81,6 +92,7 @@ func main() {
 	api.Get("/placements/recruiters", handlers.GetRecruiters)
 	api.Get("/placements/testimonials", handlers.GetPlacementTestimonials)
 	api.Get("/press-media", handlers.GetPressMedia)
+	api.Get("/settings", handlers.GetSettings)
 	
 	// Protected Admin Routes
 	admin := api.Group("/admin", middleware.AuthRequired)
@@ -191,6 +203,7 @@ func main() {
 	admin.Delete("/press-media/:id", handlers.DeletePressMedia)
 
 	admin.Post("/upload", handlers.UploadFile)
+	admin.Put("/settings", handlers.UpdateSetting)
 
 	// Static Files
 	app.Static("/uploads", "./uploads")
